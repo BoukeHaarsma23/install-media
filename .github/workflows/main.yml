@@ -4,8 +4,45 @@ on:
     branches:
     - 'master'
 jobs:
+  build-installer:
+    name: Build Graphical Installer
+    runs-on: ubuntu-latest
+
+    container:
+      image: archlinux:base-devel
+    steps:
+      - name: Set up pacman keyring
+        run: |
+          pacman-key --init
+          pacman-key --populate archlinux
+          mkdir -p /etc/gnupg && echo "auto-key-retrieve" >> /etc/gnupg/gpg.conf
+      - name: Install dependencies
+        run: |
+          pacman -Syu --noconfirm unzip godot wget git fontconfig
+      - name: Get latest graphical installer
+        run: |
+          git clone https://github.com/chimeraos/chimeraos-installer.git
+      - name: Build ChimeraOS installer
+        id: build
+        shell: bash
+        run: |
+          godot --version
+          cd chimeraos-installer
+          make build
+          cd build
+          ls -ahl
+          pwd
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: chimeraos-installer
+          path: |
+            chimeraos-installer/build/chimeraos-installer.x86_64
+          if-no-files-found: error
+
   build:
     name: Installer ISO build
+    needs: [build-installer]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -17,6 +54,11 @@ jobs:
       - uses: actions/checkout@v3
       - name: Change directory
         run: cd $GITHUB_WORKSPACE
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: chimeraos-installer
+          path: chimeraos/airootfs/root/
       - name: Build ISO
         id: build_iso
         run: ./build-iso-docker.sh

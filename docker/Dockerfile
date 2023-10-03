@@ -26,4 +26,5 @@ ENV BUILD_USER "build"
 ENV GNUPGHOME  "/etc/pacman.d/gnupg"
 
 #Copy archiso files from this git repo
+ADD chimeraos-installer /root/chimeraos-installer
 ADD chimeraos /root/chimeraos
