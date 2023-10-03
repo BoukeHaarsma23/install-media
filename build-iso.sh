@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 if [ $EUID -ne 0 ]; then
 	echo "$(basename $0) must be run as root"
 	exit 1
@@ -24,7 +24,6 @@ mkdir -p "${temp_dir}"
 AUR_PACKAGES="\
     frzr \
     gamescope-plus \
-    gamescope-session-git \
     rtl88x2bu-dkms-git \
     rtw89-dkms-git \
     r8152-dkms \
