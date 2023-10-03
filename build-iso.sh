@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 if [ $EUID -ne 0 ]; then
 	echo "$(basename $0) must be run as root"
 	exit 1
@@ -24,7 +24,6 @@ mkdir -p "${temp_dir}"
 AUR_PACKAGES="\
     frzr \
     gamescope-plus \
-    gamescope-session-git \
     rtl88x2bu-dkms-git \
     rtw89-dkms-git \
     r8152-dkms \
@@ -34,8 +33,8 @@ AUR_PACKAGES="\
 "
 
 ADDITIONAL_PACKAGES="\
-    https://github.com/ChimeraOS/linux-chimeraos/releases/download/v6.3.9-chos2/linux-chimeraos-6.3.9.chos2-1-x86_64.pkg.tar.zst \
-    https://github.com/ChimeraOS/linux-chimeraos/releases/download/v6.3.9-chos2/linux-chimeraos-headers-6.3.9.chos2-1-x86_64.pkg.tar.zst \
+    https://github.com/ChimeraOS/linux-chimeraos/releases/download/v6.5.5-chos4-1/linux-chimeraos-6.5.5.chos4-1-x86_64.pkg.tar.zst \
+    https://github.com/ChimeraOS/linux-chimeraos/releases/download/v6.5.5-chos4-1/linux-chimeraos-headers-6.5.5.chos4-1-x86_64.pkg.tar.zst \
 "
 
 # create repo directory if it doesn't exist yet
