@@ -1,0 +1,3 @@
+[submodule "chimeraos-installer"]
+	path = chimeraos-installer
+	url = https://github.com/chimeraos/chimeraos-installer
