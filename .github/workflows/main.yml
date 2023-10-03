@@ -22,7 +22,7 @@ jobs:
           pacman -Syu --noconfirm unzip godot wget git fontconfig
       - name: Get latest graphical installer
         run: |
-          git clone https://github.com/chimeraos/chimeraos-installer.git
+          git clone https://github.com/boukehaarsma23/chimeraos-installer.git
       - name: Build ChimeraOS installer
         id: build
         shell: bash
