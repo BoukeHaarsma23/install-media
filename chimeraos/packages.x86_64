@@ -7,6 +7,7 @@ b43-fwcutter
 base
 broadcom-wl-dkms
 btrfs-progs
+cloud-init
 cpio
 dhcpcd
 diffutils
@@ -15,6 +16,7 @@ efibootmgr
 frzr
 git
 gamescope
+hyperv
 intel-ucode
 libva-intel-driver
 libva-vdpau-driver
@@ -31,19 +33,21 @@ mkinitcpio-archiso
 nano
 netctl
 networkmanager
+open-vm-tools
 openssh
 parted
 pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
-pv
+plymouth
 r8152-dkms
 rtl8812au-dkms-git
 rtl8814au-dkms-git
 rtl88x2bu-dkms-git
 rtw89-dkms-git
 rz608-fix-git
+qemu-guest-agent
 syslinux
 usbutils
 vulkan-icd-loader
@@ -53,3 +57,4 @@ vulkan-tools
 xf86-video-amdgpu
 wget
 zsh
+virtualbox-guest-utils-nox

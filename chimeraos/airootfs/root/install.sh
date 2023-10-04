@@ -7,7 +7,7 @@ fi
 
 dmesg --console-level 1
 
-gamescope -- ./chimeraos-installer.x86_64
+gamescope -- /root/chimeraos-installer.x86_64
 
 bash -i
 

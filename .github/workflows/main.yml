@@ -3,6 +3,7 @@ on:
   push:
     branches:
     - 'master'
+    - 'upstream'
 jobs:
   build-installer:
     name: Build Graphical Installer
