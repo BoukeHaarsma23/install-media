@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-
+tree -l
 if [ $EUID -ne 0 ]; then
 	echo "$(basename $0) must be run as root"
 	exit 1
@@ -24,6 +24,7 @@ mkdir -p "${temp_dir}"
 # add AUR packages to the build
 AUR_PACKAGES="\
     frzr \
+    gamescope-plus \
     rtl88x2bu-dkms-git \
     rtw89-dkms-git \
     r8152-dkms \
@@ -51,6 +52,17 @@ fi
 pushd /home/${BUILD_USER}
 "${PIKAUR_RUN[@]}"
 popd
+
+for package in /pkgs/*/; do
+	echo "Building ${package}"
+    chmod 777 ${package}
+	PIKAUR_CMD="PKGDEST=/tmp/temp_repo \
+		pikaur --noconfirm -S -P ${package}PKGBUILD"
+	PIKAUR_RUN=(su "${BUILD_USER}" -c "${PIKAUR_CMD}")
+    pushd /home/${BUILD_USER}
+	"${PIKAUR_RUN[@]}"
+    popd
+done
 
 # copy all built packages to the repo
 cp /tmp/temp_repo/* ${LOCAL_REPO}

@@ -6,7 +6,7 @@ MAINTAINER Wouter Wijsman
 
 #Install archiso
 RUN yes | pacman -Syuu archiso lynx
-RUN pacman --noconfirm -S --needed git pyalpm python-commonmark python-markdown-it-py python-wheel python-build python-installer python-setuptools python-hatchling
+RUN pacman --noconfirm -S --needed git pyalpm python-commonmark python-markdown-it-py python-wheel python-build python-installer python-setuptools python-hatchling tree
 RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     useradd build -G wheel -m
 RUN su - build -c "git clone https://aur.archlinux.org/pikaur.git /tmp/pikaur" && \
@@ -28,3 +28,4 @@ ENV GNUPGHOME  "/etc/pacman.d/gnupg"
 #Copy archiso files from this git repo
 ADD chimeraos-installer /root/chimeraos-installer
 ADD chimeraos /root/chimeraos
+ADD pkgs /pkgs

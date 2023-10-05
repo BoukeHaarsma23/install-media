@@ -18,7 +18,7 @@ file_permissions=(
   ["/root"]="0:0:750"
   ["/root/.automated_script.sh"]="0:0:755"
   ["/root/.gnupg"]="0:0:700"
+  ["/root/gamescope-fg.sh"]="0:0:755"
   ["/root/install.sh"]="0:0:755"
-  ["/root/install_fallback.sh"]="0:0:755"
   ["/root/chimeraos-installer.x86_64"]="0:0:755"
 )
