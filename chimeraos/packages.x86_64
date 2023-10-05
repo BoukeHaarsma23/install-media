@@ -50,7 +50,6 @@ rtw89-dkms-git
 rz608-fix-git
 qemu-guest-agent
 syslinux
-sddm
 usbutils
 vulkan-icd-loader
 vulkan-intel
