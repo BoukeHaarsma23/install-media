@@ -5,7 +5,7 @@ acpica
 amd-ucode
 b43-fwcutter
 base
-broadcom-wl-dkms
+#broadcom-wl-dkms
 btrfs-progs
 cloud-init
 cpio
@@ -42,12 +42,12 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 plymouth
-r8152-dkms
-rtl8812au-dkms-git
-rtl8814au-dkms-git
-rtl88x2bu-dkms-git
-rtw89-dkms-git
-rz608-fix-git
+#r8152-dkms
+#rtl8812au-dkms-git
+#rtl8814au-dkms-git
+#rtl88x2bu-dkms-git
+#rtw89-dkms-git
+#rz608-fix-git
 qemu-guest-agent
 syslinux
 sddm
