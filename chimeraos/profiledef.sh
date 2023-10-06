@@ -15,10 +15,8 @@ airootfs_image_type="squashfs"
 airootfs_image_tool_options=('-comp' 'xz' '-Xbcj' 'x86' '-b' '1M' '-Xdict-size' '1M')
 file_permissions=(
   ["/etc/shadow"]="0:0:400"
+  ["/etc/gshadow"]="0:0:400"
   ["/root"]="0:0:750"
   ["/root/.automated_script.sh"]="0:0:755"
   ["/root/.gnupg"]="0:0:700"
-  ["/root/gamescope-fg.sh"]="0:0:755"
-  ["/root/install.sh"]="0:0:755"
-  ["/root/chimeraos-installer.x86_64"]="0:0:755"
 )

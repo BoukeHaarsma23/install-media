@@ -3,7 +3,7 @@
 set -e
 
 exec "$@" & # start game
-sleep 1 # wait a bit for game window
+sleep 30 # wait a bit for game window
 
 # find window with size greater than 99x99 that is not a steam window
 RESULT=$(xwininfo -display $DISPLAY -root -tree | grep "^     0x" | grep -E "[0-9]{3}x[0-9]{3}" \

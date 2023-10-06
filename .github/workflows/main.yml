@@ -59,7 +59,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: chimeraos-installer
-          path: chimeraos/airootfs/root/
+          path: chimeraos/airootfs/usr/bin
       - name: Build ISO
         id: build_iso
         run: ./build-iso-docker.sh
