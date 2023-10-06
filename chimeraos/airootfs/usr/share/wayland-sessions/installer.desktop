@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=ChimeraOS Installer
+Name=ChimeraOS (installer)
 Comment=Start the chimeraos installer
 Exec=gamescope-session-plus chimeraos-installer
 Type=Application

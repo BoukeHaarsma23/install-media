@@ -1,0 +1,5 @@
+root:x:0:root
+adm:x:4:gamer
+wheel:x:10:gamer
+uucp:x:14:gamer
+gamer:x:1000:

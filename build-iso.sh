@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-tree -l
 if [ $EUID -ne 0 ]; then
 	echo "$(basename $0) must be run as root"
 	exit 1
@@ -25,13 +24,13 @@ mkdir -p "${temp_dir}"
 AUR_PACKAGES="\
     frzr \
     gamescope-plus \
+    rtl88x2bu-dkms-git \
+    rtw89-dkms-git \
+    r8152-dkms \
+    rtl8812au-dkms-git \
+    rtl8814au-dkms-git \
+    rz608-fix-git \
 "
-#    rtl88x2bu-dkms-git \
-#    rtw89-dkms-git \
-#    r8152-dkms \
-#    rtl8812au-dkms-git \
-#    rtl8814au-dkms-git \
-#    rz608-fix-git \
 
 ADDITIONAL_PACKAGES="\
     https://github.com/ChimeraOS/linux-chimeraos/releases/download/v6.5.5-chos4-1/linux-chimeraos-6.5.5.chos4-1-x86_64.pkg.tar.zst \
