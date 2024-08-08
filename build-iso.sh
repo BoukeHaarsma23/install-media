@@ -22,7 +22,6 @@ mkdir -p "${temp_dir}"
 
 # add AUR packages to the build
 AUR_PACKAGES="\
-    frzr \
     rtl88x2bu-dkms-git \
     rtw89-dkms-git \
     r8152-dkms \
@@ -50,6 +49,13 @@ fi
 pushd /home/${BUILD_USER}
 "${PIKAUR_RUN[@]}"
 popd
+chown -vR ${BUILD_USER} build
+PIKAUR_CMD="PKGDEST=/tmp/temp_repo makepkg -p build/frzr-git/PKGBUILD"
+PIKAUR_RUN=(bash -c "${PIKAUR_CMD}")
+if [ -n "${BUILD_USER}" ]; then
+	PIKAUR_RUN=(su "${BUILD_USER}" -c "${PIKAUR_CMD}")
+fi
+"${PIKAUR_RUN[@]}"
 
 # copy all built packages to the repo
 cp /tmp/temp_repo/* ${LOCAL_REPO}

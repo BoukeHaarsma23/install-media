@@ -12,7 +12,7 @@ dhcpcd
 diffutils
 dosfstools
 efibootmgr
-frzr
+frzr-git
 git
 gamescope
 intel-ucode
